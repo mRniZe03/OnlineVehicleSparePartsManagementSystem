@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+         
+    <servlet>
+     <servlet-name>SupplierLoginServlet</servlet-name>
+     <servlet-class>VehicleSparepartsManagment.SupplierLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>SupplierLoginServlet</servlet-name>
+      <url-pattern>/SupplierLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+      <servlet-name>SupplierProfileChangePasswordServlet</servlet-name>
+      <servlet-class>VehicleSparepartsManagment.SupplierProfileChangePasswordServlet</servlet-class>
+      </servlet>
+    <servlet-mapping>
+       <servlet-name>SupplierProfileChangePasswordServlet</servlet-name>
+       <url-pattern>/SupplierProfileChangePasswordServlet</url-pattern>
+       </servlet-mapping>
+   <servlet>
+       <servlet-name>SupplierProfileForgotPasswordServlet</servlet-name>
+       <servlet-class>VehicleSparepartsManagment.SupplierProfileForgotPasswordServlet</servlet-class>
+       </servlet>
+   <servlet-mapping>
+       <servlet-name>SupplierProfileForgotPasswordServlet</servlet-name>
+       <url-pattern>/SupplierProfileForgotPasswordServlet</url-pattern>
+       </servlet-mapping>
+   <servlet>
+   <servlet-name>SupplierProfileResetPasswordServlet</servlet-name>
+       <servlet-class>VehicleSparepartsManagment.SupplierProfileResetPasswordServlet</servlet-class>
+       </servlet>
+   <servlet-mapping>
+   <servlet-name>SupplierProfileResetPasswordServlet</servlet-name>
+       <url-pattern>/SupplierProfileResetPasswordServlet</url-pattern>
+       </servlet-mapping>
+   <servlet>
+       <servlet-name>SupplierSparePartInsertServlet</servlet-name>
+       <servlet-class>VehicleSparepartsManagment.SupplierSparePartInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+       <servlet-name>SupplierSparePartInsertServlet</servlet-name>
+       <url-pattern>/SupplierSparePartInsertServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+      <servlet-name>SupplierSparePartGetAllServlet</servlet-name>
+      <servlet-class>VehicleSparepartsManagment.SupplierSparePartGetAllServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+       <servlet-name>SupplierSparePartGetAllServlet</servlet-name>
+       <url-pattern>/SupplierSparePartGetAllServlet</url-pattern>
+  </servlet-mapping>
+ <servlet>
+       <servlet-name>SupplierSparePartUpdateServlet</servlet-name>
+       <servlet-class>VehicleSparepartsManagment.SupplierSparePartUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+       <servlet-name>SupplierSparePartUpdateServlet</servlet-name>
+       <url-pattern>/SupplierSparePartUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+       <servlet-name>SupplierSparePartDeleteServlet</servlet-name>
+      <servlet-class>VehicleSparepartsManagment.SupplierSparePartDeleteServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+     <servlet-name>SupplierSparePartDeleteServlet</servlet-name>
+     <url-pattern>/SupplierSparePartDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+     <servlet-name>SupplierOrderHistoryViewServlet</servlet-name>
+     <servlet-class>VehicleSparepartsManagment.SupplierOrderHistoryViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>SupplierOrderHistoryViewServlet</servlet-name>
+    <url-pattern>/SupplierOrderHistoryViewServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+       <servlet-name>SupplierViewCompanyOrderServlet</servlet-name>
+       <servlet-class>VehicleSparepartsManagment.SupplierViewCompanyOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>SupplierViewCompanyOrderServlet</servlet-name>
+      <url-pattern>/SupplierViewCompanyOrderServlet</url-pattern>
+ </servlet-mapping>
+ <servlet>
+      <servlet-name>SupplierOrderActionServlet</servlet-name>
+      <servlet-class>VehicleSparepartsManagment. SupplierOrderActionServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+      <servlet-name>SupplierOrderActionServlet</servlet-name>
+      <url-pattern>/SupplierOrderActionServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>SupplierSparePartReportServlet</servlet-name>
+    <servlet-class>VehicleSparepartsManagment.SupplierSparePartReportServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+   <servlet-name>SupplierSparePartReportServlet</servlet-name>
+   <url-pattern>/SupplierSparePartReportServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>SupplierNotificationHistoryServlet</servlet-name>
+   <servlet-class>VehicleSparepartsManagment.SupplierNotificationHistoryServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+   <servlet-name>SupplierNotificationHistoryServlet</servlet-name>
+   <url-pattern>/SupplierNotificationHistoryServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+   <servlet-name>SupplierDashboardServlet</servlet-name>
+   <servlet-class>VehicleSparepartsManagment.SupplierDashboardServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+   <servlet-name>SupplierDashboardServlet</servlet-name>
+   <url-pattern>/SupplierDashboardServlet</url-pattern>
+</servlet-mapping>
+     
+</web-app>

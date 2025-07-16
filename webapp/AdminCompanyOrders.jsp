@@ -1,0 +1,180 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="model.AdminModel" %>
+<%
+    AdminModel admin = (AdminModel) session.getAttribute("admin");
+    if (admin == null) {
+        response.sendRedirect("AdminLogin.jsp");
+        return;
+    }
+    String username = (admin.getUsername() != null && !admin.getUsername().isEmpty()) ? admin.getUsername() : "Admin";
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Company Orders | AutoVio Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f1a3a;
+            color: #f0f0f0;
+        }
+
+        .top-bar {
+            background-color: #06092c;
+            color: white;
+            padding: 10px 40px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            background-color: #1c1f57;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+        }
+
+        .logo {
+            color: #f9c802;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f9c802;
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #f9c802;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #111742;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+        }
+
+        th, td {
+            padding: 14px 16px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1e2b57;
+            color: #f9c802;
+        }
+
+        td {
+            background-color: #1a2550;
+            color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: #222c5f;
+            transition: 0.3s;
+        }
+
+        button {
+            padding: 6px 14px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div>🔐 Admin Panel</div>
+    <div>
+        🧑‍💼 
+        <a href="AdminProfile.jsp" style="color: #f1c40f; font-weight: bold; text-decoration: none;">
+            Logged in as: <%= username %>
+        </a>
+        | 
+        <a href="AdminLogoutServlet" style="color: #f1c40f; font-weight: bold;">Logout</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">AutoVio Admin</div>
+    <nav>
+        <a href="AdminDashboard.jsp">Dashboard</a>
+        <a href="AdminDisplayCustomerServlet">Users</a>
+        <a href="AdminDisplaySupplierServlet">Suppliers</a>
+        <a href="AdminDisplayDeliverServlet">Delivery Personnels</a>
+        <a href="AdminSparePartGetAllServlet">Inventory</a>
+        <a href="AdminCompanyOrdersServlet">Reports</a>
+    </nav>
+</div>
+
+<div class="container">
+    <h2>All Company Orders</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Admin ID</th>
+            <th>Spare ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="order" items="${companyOrders}">
+            <tr>
+                <td>${order.request_id}</td>
+                <td>${order.adminid}</td>
+                <td>${order.spare_id}</td>
+                <td>${order.amount}</td>
+                <td>${order.orderdate}</td>
+                <td>
+                    <form action="AdminCompanyOrderReportServlet" method="get">
+                        <input type="hidden" name="request_id" value="${order.request_id}" />
+                        <button type="submit">Order Report</button>
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
